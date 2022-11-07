@@ -84,5 +84,41 @@ namespace DemoExamApp.Pages
                         Where(x => x.ProductManufacturer == CmbFiltr.SelectedValue.ToString()).Count().ToString();
             }
         }
+
+
+
+        private void CntMenuDelete_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+            if (MessageBox.Show("Удалить?", "Внимание", 
+                MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                Product productForDelete = LViewProduct.SelectedItem as Product;
+                TradeEntities.GetContext().Product.Remove(productForDelete);
+                TradeEntities.GetContext().SaveChanges();
+                MessageBox.Show("Данные удалены");
+                LViewProduct.ItemsSource = TradeEntities.GetContext().Product.ToList();
+                TxbCountSearchItem.Text = TradeEntities.GetContext().Product.Count().ToString();
+                TxbCountItem.Text = TradeEntities.GetContext().Product.Count().ToString();
+            }
+            
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Товар присутствует в заказе");
+            }
+            
+        }
+
+        private void CntMenuEdit_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnAdd_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
