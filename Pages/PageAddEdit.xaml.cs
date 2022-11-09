@@ -62,7 +62,7 @@ namespace DemoExamApp.Pages
             //    return;
             //}
             //если продукт новый
-            if (_currentProduct.ProductArticleNumber == "")
+            if (TradeEntities.GetContext().Product.Find(_currentProduct.ProductArticleNumber) == null)
                 TradeEntities.GetContext().Product.Add(_currentProduct); //добавить в контекст
             try
             {
