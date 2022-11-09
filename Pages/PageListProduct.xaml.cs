@@ -113,12 +113,15 @@ namespace DemoExamApp.Pages
 
         private void CntMenuEdit_Click(object sender, RoutedEventArgs e)
         {
-
+            //переход на редактирование
+            Product productForEdit = LViewProduct.SelectedItem as Product;
+            ClassFrame.frame.Navigate(new PageAddEdit(productForEdit));
         }
 
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
         {
-
+            //переход на добавление
+            ClassFrame.frame.Navigate(new PageAddEdit(null));
         }
     }
 }

@@ -12,13 +12,24 @@
         <StackPanel Orientation="Vertical"
                     HorizontalAlignment="Center">
             <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Артикул"
+                           Margin="5"
+                           Width="130"/>
+                <TextBox Name="TxtProductArticle"
+                     Height="30"
+                     Width="130"
+                         Margin="5"
+                         Text="{Binding ProductArticleNumber}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Наименование"
                            Margin="5"
                            Width="130"/>
                 <TextBox Name="TxtProductName"
                      Height="30"
                      Width="130"
-                         Margin="5"/>
+                         Margin="5"
+                         Text="{Binding ProductName}"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Категория"
@@ -27,7 +38,8 @@
                 <ComboBox Name="CmbProductCategory"
                      Height="30"
                      Width="130"
-                         Margin="5"/>
+                         Margin="5"
+                     SelectedValue="{Binding ProductCategory}"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Количество на складе"
@@ -36,7 +48,8 @@
                 <TextBox Name="TxtProductQuantytiInStock"
                      Height="30"
                      Width="130"
-                         Margin="5"/>
+                         Margin="5"
+                         Text="{Binding ProductQuantityInStock}"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Единица измерения"
@@ -45,8 +58,55 @@
                 <ComboBox Name="CmbProductEdin"
                      Height="30"
                      Width="130"
-                         Margin="5"/>
+                         Margin="5"
+                          />
             </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Поставщик"
+                           Margin="5"
+                               Width="130"/>
+                <ComboBox Name="CmbProductManufacturer"
+                     Height="30"
+                     Width="130"
+                         Margin="5"
+                          SelectedValue="{Binding ProductManufacturer}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Стоимость за единицу"
+                           Margin="5"
+                           Width="130"/>
+                <TextBox Name="TxtProductCost"
+                     Height="30"
+                     Width="130"
+                         Margin="5"
+                         Text="{Binding ProductCost}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Изображение"
+                           Margin="5"
+                           Width="130"/>
+                <TextBox Name="TxtProductImage"
+                     Height="30"
+                     Width="130"
+                         Margin="5"
+                         Text="{Binding ProductPhoto}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Описание"
+                           Margin="5"
+                           Width="130"/>
+                <TextBox Name="TxtProductDescription"
+                     Height="30"
+                     Width="130"
+                         Margin="5"
+                         Text="{Binding ProductDescription}"/>
+            </StackPanel>
+            <Button Content="Сохранить"
+                    Name="BtnSave"
+                    Height="30"
+                    Width="130"
+                    Margin="5"
+                    Click="BtnSave_Click"/>
         </StackPanel>
     </Grid>
 </Page>
