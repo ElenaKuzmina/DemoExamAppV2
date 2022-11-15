@@ -5,13 +5,32 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DemoExamApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="800">
+        Title="ООО &quot;Стройматериалы&quot;" 
+        Height="600" Width="800" Icon="/icon.ico"
+        MinHeight="600" MinWidth="800"
+        >
     <Grid>
+       
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
             <RowDefinition Height="4*"/>
         </Grid.RowDefinitions>
-        <Frame Name="FrmMain"
-              Grid.Row="1"/>
+        <StackPanel Orientation="Horizontal"
+                    HorizontalAlignment="Center">
+         <Image Source="Resourses/logo.png"/>
+            <TextBlock Text="{Binding ElementName=FrmMain, 
+                Path=Content.Title}"
+                       Width="200"
+                       Height="50"/>
+            <Button Content="Назад"
+                    Name="BtnBack"
+                    Width="70"
+                    Height="30"
+                    Click="BtnBack_Click"/>
+        </StackPanel>
+
+        <Frame Name="FrmMain" NavigationUIVisibility="Hidden"
+              Grid.Row="1"
+               ContentRendered="FrmMain_ContentRendered"/>
     </Grid>
 </Window>

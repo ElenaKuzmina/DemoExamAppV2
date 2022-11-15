@@ -46,21 +46,29 @@ namespace DemoExamApp.Pages
             DataContext = _currentProduct;
 
         }
-
+        /// <summary>
+        /// сохранение
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnSave_Click(object sender, RoutedEventArgs e)
         {
             StringBuilder error = new StringBuilder(); //объект для сообщения об ошибке
 
             //проверка полей объекта
-            //if (string.IsNullOrWhiteSpace(_currentProduct.FirstName))
-            //    error.AppendLine("Укажите имя");
-            //if (string.IsNullOrWhiteSpace(_currentUser.LastName))
-            //    error.AppendLine("Укажите фамилию");
-            //if (error.Length > 0)
-            //{
-            //    MessageBox.Show(error.ToString());
-            //    return;
-            //}
+            if (string.IsNullOrWhiteSpace(_currentProduct.ProductArticleNumber))
+                error.AppendLine("Укажите артикул");
+            if (string.IsNullOrWhiteSpace(_currentProduct.ProductName))
+                error.AppendLine("Укажите название");
+            if (_currentProduct.ProductCost <= 0)
+                error.AppendLine("Стоимость должна быть больше нуля");
+            if (_currentProduct.ProductQuantityInStock < 0)
+                error.AppendLine("Количество не может быть отрицательным");
+            if (error.Length > 0)
+            {
+                MessageBox.Show(error.ToString());
+                return;
+            }
             //если продукт новый
             if (TradeEntities.GetContext().Product.Find(_currentProduct.ProductArticleNumber) == null)
                 TradeEntities.GetContext().Product.Add(_currentProduct); //добавить в контекст

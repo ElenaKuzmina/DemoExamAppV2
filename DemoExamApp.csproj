@@ -120,6 +120,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\PageLogin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Pages\PageAddEdit.xaml.cs">
@@ -127,6 +131,9 @@
     </Compile>
     <Compile Include="Pages\PageListProduct.xaml.cs">
       <DependentUpon>PageListProduct.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PageLogin.xaml.cs">
+      <DependentUpon>PageLogin.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -174,6 +181,9 @@
       <DependentUpon>ModelDBTrade.edmx</DependentUpon>
       <LastGenOutput>ModelDBTrade.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resourses\logo.png" />
+    <Resource Include="icon.ico" />
+    <Resource Include="Resourses\icon.ico" />
     <Resource Include="Pages\picture.png" />
     <Resource Include="Resourses\picture - Копировать.png" />
     <Resource Include="ProductImage\2G3280.jpg" />

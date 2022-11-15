@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:DemoExamApp.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="500" d:DesignWidth="800"
-      Title="PageListProduct">
+      Title="Список стройматериалов">
 
     <Grid>
         <Grid.ColumnDefinitions>

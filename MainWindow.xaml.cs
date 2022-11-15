@@ -26,7 +26,22 @@ namespace DemoExamApp
         {
             InitializeComponent();
             ClassFrame.frame = FrmMain;
-            FrmMain.Navigate(new PageListProduct());
+            FrmMain.Navigate(new PageLogin());
+        }
+
+        private void BtnBack_Click(object sender, RoutedEventArgs e)
+        {
+            FrmMain.GoBack();
+        }
+
+        
+
+        private void FrmMain_ContentRendered(object sender, EventArgs e)
+        {
+            if (FrmMain.CanGoBack)
+                BtnBack.Visibility = Visibility.Visible;
+            else
+                BtnBack.Visibility = Visibility.Hidden;
         }
     }
 }
