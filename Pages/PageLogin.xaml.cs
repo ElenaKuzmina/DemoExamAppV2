@@ -31,7 +31,8 @@ namespace DemoExamApp.Pages
             public void Roll() // class Roll generate random properties
             {
                 string allowchar = string.Empty;
-                allowchar += "Q,W,E,R,T,Y,U,I,O,P,L,K,J,H,G,F,D,S,Z,X,C,V,B,N,M,q,w,e,r,t,y,u,i,o,p,l,k,j,h,g,f,d,s,a,z,x,c,v,b,n,m,1,2,3,4,5,6,7,8,9,0";
+                allowchar += "Q,W,E,R,T,Y,U,I,O,P,L,K,J,H,G,F,D,S,Z,X,C,V,B,N,M," +
+                "q,w,e,r,t,y,u,i,o,p,l,k,j,h,g,f,d,s,a,z,x,c,v,b,n,m,1,2,3,4,5,6,7,8,9,0";
                 char[] deleted_st = { ',' };
                 string[] split_this = allowchar.Split(deleted_st);
                 string pwd = string.Empty;
@@ -54,20 +55,23 @@ namespace DemoExamApp.Pages
                 try
                 {
                     var userObj = TradeEntities.GetContext().User.FirstOrDefault(
-                        x => x.UserName.ToLower() == loginBox.Text.ToLower() &&
+                        x => x.UserLogin.ToLower() == loginBox.Text.ToLower() &&
                         x.UserPassword == passwordBox.Password);
-                    if (userObj != null)
-                    {
-                        MessageBox.Show("Данные отсутствуют или неправильны", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                        timer(); // class timer
-                    }
-                    else if (captchaBox.Text != Captcha.Text)
-                    {
-                        MessageBox.Show("Неверная капча", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                        timer(); // class timer
-                    }
-                    else
-                    {
+                if (userObj == null)
+                {
+                    MessageBox.Show("Данные отсутствуют или неправильны", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                    timer(); // class timer
+                }
+                else if (captchaBox.Text != Captcha.Text)
+                {
+                    MessageBox.Show("Неверная капча", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                timer(); // class timer
+            }
+                else
+                {
+               
+                    MainWindow.textBlock.Text = string.Concat(userObj.UserSurname, ' ',
+                        userObj.UserName, ' ', userObj.UserPatronymic);
                     ClassFrame.frame.Navigate(new PageListProduct());
                 }
                 }

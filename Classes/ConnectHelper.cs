@@ -9,5 +9,6 @@ namespace DemoExamApp.Classes
     internal class ConnectHelper
     {
         public static TradeEntities tradeEntities = new TradeEntities();
+      
     }
 }

@@ -22,6 +22,14 @@
                 Path=Content.Title}"
                        Width="200"
                        Height="50"/>
+            
+            <TextBlock 
+                Name="TxbFIO"
+                Text="ФИО"
+                       Width="200"
+                       Height="30"
+                       Margin="10"
+                       TextAlignment="Center"/>
             <Button Content="Назад"
                     Name="BtnBack"
                     Width="70"

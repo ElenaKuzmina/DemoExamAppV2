@@ -22,11 +22,14 @@ namespace DemoExamApp
     /// </summary>
     public partial class MainWindow : Window
     {
+        public static TextBlock textBlock;
         public MainWindow()
         {
             InitializeComponent();
             ClassFrame.frame = FrmMain;
             FrmMain.Navigate(new PageLogin());
+            textBlock = TxbFIO;
+
         }
 
         private void BtnBack_Click(object sender, RoutedEventArgs e)
@@ -42,6 +45,7 @@ namespace DemoExamApp
                 BtnBack.Visibility = Visibility.Visible;
             else
                 BtnBack.Visibility = Visibility.Hidden;
+
         }
     }
 }
